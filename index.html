@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LitTranslate - Literary Translation Service</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- PDF.js library for PDF parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <!-- jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header>
@@ -28,27 +32,24 @@
             <button class="translate-btn" id="translateBtn" disabled>Translate</button>
         </div>
         
+        <div class="loading-spinner" id="loadingSpinner">
+            <div class="spinner"></div>
+            <p>Translating your document...</p>
+        </div>
+        
         <div class="translation-results" id="translationResults">
             <div class="translation-card">
-                <h3 class="translation-language">Bengali</h3>
-                <p class="translation-text">
-                    For over 65 years, we have been recognized as the leading provider of sports, leisure and entertainment insurance products.
-                    <br><br>
-                    We perform a variety of traditional insurance company functions on behalf of the insurance companies we represent, allowing us to provide exceptional service in: program development, sales & marketing, underwriting, policy issuance & administration, loss control and claims.
-                </p>
+                <h3 class="translation-language">Bengali (Original)</h3>
+                <div class="translation-text" id="bengaliText"></div>
             </div>
             
             <div class="translation-card">
-                <h3 class="translation-language">Hindi</h3>
-                <p class="translation-text">
-                    For over 65 years, we have been recognized as the leading provider of sports, leisure and entertainment insurance products.
-                    <br><br>
-                    We perform a variety of traditional insurance company functions on behalf of the insurance companies we represent, allowing us to provide exceptional service in: program development, sales & marketing, underwriting, policy issuance & administration, loss control and claims.
-                </p>
+                <h3 class="translation-language">Hindi (Translated)</h3>
+                <div class="translation-text" id="hindiText"></div>
             </div>
         </div>
         
-        <button class="download-btn" id="downloadBtn">Download</button>
+        <button class="download-btn" id="downloadBtn">Download Translation</button>
     </main>
     
     <footer>
